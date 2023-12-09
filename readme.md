@@ -1,5 +1,6 @@
 Apache Spark and Hadoop Installation on Windows
 
+
 Step 1: Installing Apache Spark
 Download Apache Spark: Obtain Apache Spark from Apache Spark Downloads.
 
