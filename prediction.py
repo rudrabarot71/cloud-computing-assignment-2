@@ -49,17 +49,8 @@ column_name_mapping = {
 for old_name, new_name in column_name_mapping.items():
     validation_df = validation_df.withColumnRenamed(old_name, new_name)
 
-# Load and evaluate Logistic Regression model
-model_lr = CrossValidatorModel.load('s3a://cldassign2/LogisticRegression')
-evaluator_lr = MulticlassClassificationEvaluator(metricName="f1")
-print("F1 Score for LogisticRegression Model: ", evaluator_lr.evaluate(model_lr.transform(validation_df)))
-
 # Load and evaluate Random Forest Classifier model
 model_rf = CrossValidatorModel.load('s3a://cldassign2/RandomForestClassifier')
 evaluator_rf = MulticlassClassificationEvaluator(metricName="f1")
 print("F1 Score for RandomForestClassifier Model: ", evaluator_rf.evaluate(model_rf.transform(validation_df)))
 
-# Load and evaluate Decision Tree Classifier model
-model_dt = CrossValidatorModel.load('s3a://cldassign2/DecisionTreeClassifier')
-evaluator_dt = MulticlassClassificationEvaluator(metricName="f1")
-print("F1 Score for DecisionTreeClassifier Model: ", evaluator_dt.evaluate(model_dt.transform(validation_df)))
